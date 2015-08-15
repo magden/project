@@ -1,0 +1,15 @@
+assembly: assembly.o symbtable.o run.o data.o
+	gcc -g -ansi -Wall assembly.o symbtable.o run.o data.o -o assembly
+
+assembly.o: assembly.c symbtable.h data.h
+	gcc -c -ansi –Wall assembly.c -o assembly.o
+
+symbtable.o: symbtable.c symbtable.h data.h
+	gcc -c -ansi –Wall symbtable.c -o symbtable.o
+
+run.o: run.c data.h symbtable.h
+	gcc -c -ansi –Wall run.c -o run.o
+
+data.o: data.c data.h
+	gcc -c -ansi –Wall data.c -o data.o
+
